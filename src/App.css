@@ -1,38 +1,141 @@
+* {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
+
 .App {
+  width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border: 5px solid #ccc;
+  border-radius: 1em;
+  padding: 10px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.details span {
+  display: block;
+}
+
+.id-card-template {
+  background-image: url('./template.png');
+  width: 506px;
+  height: 320px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+}
+
+.details {
+  position: absolute;
+  top: 30px;
+  left: 30px;
   text-align: center;
+  width: 230px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.name {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  color: #07796b;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.position {
+  font-size: 18px;
+  text-transform: uppercase;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.contact {
+  text-align: justify;
+  margin-top: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.contact > span {
+  margin-bottom: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-fields {
+  margin-top: 20px;
+}
+
+.input-fields div {
+  margin-bottom: 15px;
+}
+
+.input-fields label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input-fields input,
+.input-fields textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 0.9em;
+}
+
+.input-fields textarea {
+  height: 60px; /* Adjust height for the textarea */
+  resize: none; /* Disable resizing */
+}
+
+.input-fields input:focus,
+.input-fields textarea:focus {
+  border-color: #007bff; /* Change border color on focus */
+  outline: none; /* Remove outline */
+}
+
+.input-fields input::placeholder,
+.input-fields textarea::placeholder {
+  color: #aaa; /* Placeholder color */
+}
+.print-button {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for top/bottom and left/right */
+  font-size: 1em; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+  margin-top: 20px; /* Space above the button */
+}
+
+.picture, .picture img {
+  border-radius: 50%;
+}
+
+.picture {
+  position: absolute;
+  overflow: hidden;
+  top: 85px;
+  right: 29px;
+  width: 170px;
+  height: 170px;
+  cursor: move;
+  z-index: 2;
+  background-color: #fff;
+}
+
+
+.print-button:hover {
+  background-color: #0056b3;
+}
+
+.print-button:focus {
+  outline: none;
 }

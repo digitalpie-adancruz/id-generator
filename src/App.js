@@ -1,23 +1,95 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Rnd } from 'react-rnd'; // Import Rnd for resizing and dragging
 import './App.css';
 
-function App() {
+const App = () => {
+  // State variables for dynamic fields
+  const [name, setName] = useState('John Doe');
+  const [position, setPosition] = useState('Web Developer');
+  const [email, setEmail] = useState('test@test.com');
+  const [address, setAddress] = useState('123 elmo street, Test City, Test State, More Address, More Filler');
+  const [phone, setPhone] = useState('+639123123123');
+  const [pictureUrl, setPictureUrl] = useState('');
+
+  const handlePictureChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPictureUrl(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div id='id-card-template' className='id-card-template'>
+        
+        <div className='picture'>
+          {pictureUrl && (
+            <Rnd
+              default={{
+                x: 0,
+                y: 0,
+                width: 170,
+                height: 170,
+              }}
+              minWidth={50}
+              minHeight={50}
+              bounds="window" // Set bounds to the window
+              style={{ border: '1px solid #ccc', borderRadius: '50%', overflow: 'hidden' }}
+            >
+              <img
+                src={pictureUrl}
+                alt='Picture'
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+              />
+            </Rnd>
+          )}
+        </div>
+
+        <div className='details'>
+          <span className='name'>{name}</span>
+          <span className='position'>{position}</span>
+          <div className='contact'>
+            <span className='email'><strong>EMAIL :</strong> {email}</span>
+            <span className='address'><strong>ADDRESS :</strong> {address}</span>
+            <span className='phone'><strong>PHONE :</strong> {phone}</span>
+          </div>
+        </div>
+      </div>
+
+      <div className='input-fields'>
+        <div>
+          <label>Picture</label>
+          <input type='file' onChange={handlePictureChange} />
+        </div>
+        <div>
+          <label>Name</label>
+          <input type='text' placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
+        </div>
+        <div>
+          <label>Position</label>
+          <input type='text' placeholder='Position' value={position} onChange={(e) => setPosition(e.target.value)} />
+        </div>
+        <div>
+          <label>Email</label>
+          <input type='email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+        </div>
+        <div>
+          <label>Address</label>
+          <textarea placeholder='Address' onChange={(e) => setAddress(e.target.value)}>{address}</textarea>
+        </div>
+        <div>
+          <label>Phone</label>
+          <input type='tel' placeholder='Phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
+        </div>
+      </div>
+
+      <button className='print-button'>Print ID Card</button>
     </div>
   );
 }
