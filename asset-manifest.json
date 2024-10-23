@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/id-generator/static/css/main.08e74467.css",
+    "main.js": "/id-generator/static/js/main.86b670dd.js",
+    "static/js/453.f069d1d1.chunk.js": "/id-generator/static/js/453.f069d1d1.chunk.js",
+    "index.html": "/id-generator/index.html",
+    "main.08e74467.css.map": "/id-generator/static/css/main.08e74467.css.map",
+    "main.86b670dd.js.map": "/id-generator/static/js/main.86b670dd.js.map",
+    "453.f069d1d1.chunk.js.map": "/id-generator/static/js/453.f069d1d1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.08e74467.css",
+    "static/js/main.86b670dd.js"
+  ]
+}
