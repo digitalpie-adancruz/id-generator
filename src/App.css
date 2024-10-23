@@ -6,36 +6,42 @@
 }
 
 .App {
-  width: 750px;
+  width: 1500px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
   border: 5px solid #ccc;
   border-radius: 1em;
   padding: 10px;
+  height: 700px;
+}
+
+.block {
+  display: block;
 }
 
 strong {
   font-weight: bold;
 }
 
-.details span {
-  display: block;
+.id-card-template {
+  margin-left: auto;
+  margin-right: auto;
+  float: left;
 }
 
-.id-card-template {
+.id-card-template-front {
   background-image: url('./template.png');
   width: 506px;
   height: 320px;
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
   border: 1px solid black;
+  display: inline-block;
 }
 
 .details {
   position: absolute;
-  top: 30px;
+  top: 25px;
   left: 30px;
   text-align: center;
   width: 230px;
@@ -51,20 +57,42 @@ strong {
 
 .position {
   font-size: 18px;
-  text-transform: uppercase;
 }
 
 .contact {
   text-align: justify;
-  margin-top: 30px;
+  margin-top: 20px;
+  width: 300px;
 }
 
-.contact > span {
-  margin-bottom: 5px;
+.id-card-template-front .contact table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-left: -45px;
+}
+
+.contact td {
+  padding: 1px;
+  vertical-align: top;
+  padding-left: 12px;
+}
+
+.label {
+  text-align: right;
+  min-width: 100px;
+}
+
+.contact-value {
+  text-align: left;
 }
 
 .input-fields {
   margin-top: 20px;
+  height: 500px;
+  width: 500px;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .input-fields div {
@@ -89,30 +117,30 @@ strong {
 }
 
 .input-fields textarea {
-  height: 60px; /* Adjust height for the textarea */
-  resize: none; /* Disable resizing */
+  height: 60px; 
+  resize: none;
 }
 
 .input-fields input:focus,
 .input-fields textarea:focus {
-  border-color: #007bff; /* Change border color on focus */
-  outline: none; /* Remove outline */
+  border-color: #007bff;
+  outline: none;
 }
 
 .input-fields input::placeholder,
 .input-fields textarea::placeholder {
-  color: #aaa; /* Placeholder color */
+  color: #aaa;
 }
 .print-button {
-  background-color: #007bff; /* Bootstrap primary color */
-  color: white; /* Text color */
-  border: none; /* Remove border */
-  border-radius: 4px; /* Rounded corners */
-  padding: 10px 20px; /* Padding for top/bottom and left/right */
-  font-size: 1em; /* Font size */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease; /* Smooth background color transition */
-  margin-top: 20px; /* Space above the button */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
 }
 
 .picture, .picture img {
@@ -131,11 +159,59 @@ strong {
   background-color: #fff;
 }
 
-
 .print-button:hover {
   background-color: #0056b3;
 }
 
 .print-button:focus {
   outline: none;
+}
+
+
+/* back */
+
+.id-card-template-back {
+  background-image: url('./template-back.png');
+  width: 506px;
+  height: 320px;
+  position: relative;
+  border: 1px solid black;
+  display: block;
+  margin-right: 20px;
+}
+
+.details-back {
+  display: block;
+  width: 100%;
+}
+
+.id-card-template-back .contact {
+  margin-top: 60px;
+  top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 270px;
+  text-align: center;
+}
+
+.signatories {
+  position: absolute;
+  width: 100%;
+  bottom: 65px;
+  left: 25px;
+}
+
+.signatories .employer {
+  border-top: 1px solid black;
+  text-align: center;
+  width: 200px;
+}
+
+.signatories .employee {
+  border-top: 1px solid black;
+  text-align: center;
+  width: 200px;
+  float: right;
+  margin-right: 50px;
+  margin-top: -21px;
 }
