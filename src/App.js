@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Rnd } from 'react-rnd'; // Import Rnd for resizing and dragging
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 import './App.css';
 
 const App = () => {
@@ -18,6 +20,16 @@ const App = () => {
       setPictureUrl(reader.result);
     };
     reader.readAsDataURL(file);
+  };
+
+  const generatePDF = () => {
+    const input = document.getElementById('id-card-template');
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, 'PNG', 0, 0);
+      pdf.save('id-card.pdf');
+    });
   };
 
   return (
@@ -89,7 +101,7 @@ const App = () => {
         </div>
       </div>
 
-      <button className='print-button'>Print ID Card</button>
+      <button className='print-button' onClick={generatePDF}>Print ID Card</button>
     </div>
   );
 }
